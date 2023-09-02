@@ -1,10 +1,11 @@
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 import { db } from '../db.js';
 
 export const resgister = (req, res) => {
 	// Check existing user
-	const q = 'SELECT * FORM users WHERE email = ? OR username = ?';
+	const q = 'SELECT * FROM users WHERE email = ? OR username = ?';
 
 	db.query(q, [req.body.email, req.body.username], (err, data) => {
 		if (err) return res.json(err);
@@ -25,7 +26,30 @@ export const resgister = (req, res) => {
 };
 
 export const login = (req, res) => {
-	res.json('This is login from controller');
+	// Check if user present or not
+	const q = 'SELECT * FROM users WHERE username = ?';
+
+	db.query(q, [req?.body?.username], (err, data) => {
+		if (err) return res.json(err);
+		if (data.length === 0) return res.status(404).json('User not found!');
+
+		// Check password
+		const isPasswordCorrect = bcrypt.compareSync(
+			req.body.password,
+			data[0].password
+		);
+
+		if (!isPasswordCorrect)
+			return res.status(400).json('Username or Password is incorrect');
+
+		const token = jwt.sign({ id: data[0].id }, 'jwtkey');
+		const { password, ...other } = data[0];
+
+		res
+			.cookie('access_token', token, { httpOnly: true })
+			.status(200)
+			.json(other);
+	});
 };
 
 export const logout = (req, res) => {
