@@ -1,0 +1,14 @@
+/* CSS */
+@import '../../sass/variables';
+
+.button1 {
+	background-color: var(--color-primary);
+	border-radius: 3px;
+	color: var(--color-white);
+	font-size: 13px;
+	font-weight: 400;
+
+	&:hover {
+		color: var(--color-white) !important;
+	}
+}
