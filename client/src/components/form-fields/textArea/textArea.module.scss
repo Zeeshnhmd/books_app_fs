@@ -1,0 +1,17 @@
+.textArea {
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	box-shadow: none;
+	height: 38px;
+	outline: none;
+	width: 100%;
+
+	&:hover {
+		border-color: var(--color-primary);
+		border-right-width: 1px;
+	}
+
+	&:focus {
+		box-shadow: none !important;
+	}
+}
