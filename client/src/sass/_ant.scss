@@ -1,0 +1,7 @@
+@import './variables';
+
+.ant-form-item-label > label {
+	height: unset !important;
+	font-weight: 500;
+	color: var(--color-black) !important;
+}
