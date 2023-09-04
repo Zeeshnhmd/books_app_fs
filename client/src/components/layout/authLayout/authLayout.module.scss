@@ -1,0 +1,73 @@
+.wrapper {
+	min-height: 100vh;
+	background-color: #f5f5f5;
+}
+
+.inner-wrapper {
+	display: flex;
+	margin: auto;
+	max-width: 806px;
+	padding: 65px 0 20px;
+	width: 80%;
+
+	@media (max-width: 500px) {
+		width: 90%;
+	}
+
+	.left-side {
+		// background: url(../../../assets/Taieri.svg);
+		background-color: #21d4fd;
+		background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+		background-position: top;
+		background-repeat: no-repeat;
+		background-size: cover;
+		border-radius: 12px 0 0 12px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 32px;
+		position: relative;
+		width: 50%;
+		color: #fff;
+
+		@media (max-width: 768px) {
+			display: none;
+		}
+
+		.title {
+			font-size: 28px;
+			margin-bottom: 20px;
+			.logo {
+				font-family: 'Pacifico', cursive;
+			}
+		}
+
+		.ul {
+			list-style-type: disc;
+
+			.li {
+				font-size: 14px;
+				margin-bottom: 10px;
+				line-height: 16px;
+			}
+		}
+	}
+
+	.right-side {
+		background-color: #fff;
+		border-radius: 0 12px 12px 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 32px;
+		width: 50%;
+
+		@media (max-width: 768px) {
+			width: 100%;
+			border-radius: 12px;
+		}
+		@media (max-width: 500px) {
+			padding: 20px;
+		}
+	}
+}
