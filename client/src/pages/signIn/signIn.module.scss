@@ -1,0 +1,18 @@
+.wrapper {
+	.inner-wrapper {
+		padding: 55px 0;
+
+		@media (max-width: 768px) {
+			padding: 0;
+		}
+
+		.signup {
+			font-size: 16px;
+			font-weight: 600;
+
+			.signup-link {
+				color: #6558f5;
+			}
+		}
+	}
+}
